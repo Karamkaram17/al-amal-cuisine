@@ -1,0 +1,203 @@
+:root {
+  --text_color: black;
+  --bg: url("../img/White\ Rock\ Modern\ Aesthetic\ Flat\ Texture\ Background\ Restaurant\ Menu.jpg");
+  --footer-Color: rgb(100, 102, 99);
+  --a-Tag-Color: black;
+  --title-color: orange;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 14px;
+}
+* {
+  user-select: none;
+  outline: none;
+}
+
+*:hover {
+  cursor: default;
+}
+button,
+a,
+#content {
+  pointer-events: all;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  position: relative;
+  color: var(--text_color);
+}
+
+#content,
+.page {
+  background: var(--bg);
+  width: 100vw;
+  max-width: 400px;
+  min-height: 100vh;
+  margin: auto;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  transition: 1s ease-in-out, display 0s;
+  transform-style: preserve-3d;
+  border: 3px solid var(--title-color);
+  filter: brightness(1);
+  overflow-y: auto;
+  padding-bottom: 30px;
+  display: none;
+}
+
+svg {
+  fill: var(--a-Tag-Color);
+  height: 1.3rem;
+  width: 1.3rem;
+  margin: 3px 10px 0 10px;
+}
+
+#progress-bar {
+  width: 100%;
+  height: 4px;
+}
+
+#progress {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+a,
+a:active,
+a:hover {
+  color: var(--a-Tag-Color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+header button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 0;
+  background: inherit;
+  border: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+header button:hover,
+header button:active {
+  background-color: var(--title-color);
+  color: white;
+}
+
+header button:first-of-type {
+  left: 5px;
+}
+
+header button:last-of-type {
+  right: 5px;
+}
+
+header p {
+  font-size: 2rem;
+  text-align: start;
+  margin: 0;
+  font-weight: 900;
+  width: 200px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header img {
+  width: 150px;
+}
+
+section {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0.5rem 10px;
+  max-width: 300px;
+  border-radius: 0.5rem;
+}
+
+.title {
+  color: var(--title-color);
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 1.3rem;
+  padding: 0;
+  border-bottom: 1px solid var(--title-color);
+}
+
+.title-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+
+.item-name {
+  text-align: start;
+  padding-right: 5px;
+}
+
+.item-price {
+  text-align: end;
+}
+
+.contact-us {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.contact-us span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotate {
+  transform-origin: 0 0;
+  transform: rotateX(-5deg) rotateY(100deg) rotateZ(0deg);
+  filter: brightness(0.5);
+  transform-style: preserve-3d;
+}
