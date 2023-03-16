@@ -127,8 +127,8 @@ function handleTouchEnd(event) {
   // Calculate the swipe distance and direction
   const swipeDistance = touchEndX - touchStartX;
   let swipeDirection;
-  swipeDistance < -100 ? (swipeDirection = "right") : null;
-  swipeDistance > 100 ? (swipeDirection = "left") : null;
+  swipeDistance < -60 ? (swipeDirection = "right") : null;
+  swipeDistance > 60 ? (swipeDirection = "left") : null;
   console.log(swipeDistance);
   console.log(swipeDirection);
   // Activate the corresponding button based on swipe direction
