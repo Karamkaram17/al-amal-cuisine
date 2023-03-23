@@ -2,7 +2,7 @@
   --text_color: black;
   --bg-Color: rgba(251, 247, 246);
   --bg-img: url("../img/White\ Rock\ Modern\ Aesthetic\ Flat\ Texture\ Background\ Restaurant\ Menu.jpg");
-  --section-Bg-Color: rgba(222, 217, 218, 0.592);
+  --section-Bg-Color: rgb(222, 217, 218);
   --box-Shadow: 0 0 10px rgba(142, 127, 127, 0.803);
   --items-Box-Shadow: 2px 2px 10px rgb(192, 189, 189);
   --title-Text-Shadow: 0 0 10px rgb(119, 118, 118);

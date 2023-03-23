@@ -30,7 +30,7 @@ categories.forEach((category) => {
     section.innerHTML += `
       <div class="item">
         <div class="item-name">${item.name}</div>
-        <div class="item-price">${item.price}$ /${item.unit}</div>
+        <div class="item-price">${item.price}$ ${checkUnit(item.unit)}</div>
         <div class="item-options">
           <span class="item-count">0</span> 
           <input type='number' class='input-nb'/>
@@ -141,4 +141,8 @@ function formatDate(dateInput) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear().toString();
   return `${day}/${month}/${year}`;
+}
+
+function checkUnit(unit) {
+  return unit ? `/${unit}` : ``;
 }

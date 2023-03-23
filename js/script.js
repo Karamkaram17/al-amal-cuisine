@@ -80,7 +80,7 @@ ContentDOM.innerHTML += `
     <button class="next" onclick="next()">></button>
   </header>
   <p>
-    At AL Amal Cuisine, we are passionate about bringing you the best of frozen cuisine. Our team of expert chefs creates delicious and nutritious meals using only the finest ingredients, which are then frozen to preserve their freshness and flavor. Our cuisine is inspired by a fusion of Arabic and international flavors, ensuring there is something to suit every taste.
+    At AL Amal Cuisine, we are passionate about bringing you the best of frozen food. Our team of expert chefs creates delicious and nutritious meals using only the finest ingredients, which are then frozen to preserve their freshness and flavor. Our cuisine is inspired by a fusion of Arabic and international flavors, ensuring there is something to suit every taste.
   </p>
   <div class="contact-us">
       <div>
