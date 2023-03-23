@@ -4,57 +4,104 @@ const categories = [];
 
 data.reverse();
 data.forEach((item) => {
-  if (!categories.includes(item.category)) {
-    categories.push(item.category);
+  if (!categories.includes(item.page)) {
+    categories.push(item.page);
   }
 });
 
-categories.forEach((category) => {
+categories.forEach((pageNb) => {
   const page = document.createElement("div");
   page.className = "page";
   page.innerHTML += `
     <header>
       <p>MENU</p>
-      <div><img src="./img/logo.png" alt="" /></div>
+      <div><img class="main-img" src="./img/logo.png" alt="" /></div>
       <button class="prev" onclick="prev()"><</button>
       <button class="next" onclick="next()">></button>
     </header>
     `;
-  const section = document.createElement("section");
-  section.innerHTML += `
-      <div class="title">  
-        <div class="title-name">${category}</div>
-      </div>
-    `;
-  const newItems = data.filter((item) => item.category === category);
-  newItems.forEach((item) => {
-    section.innerHTML += `
-        <div class="item">
-          <div class="item-name">${item.name}</div>
-          <div class="item-price">${item.price}$</div>
-        </div>
-    `;
+  const newPage = data.filter((item) => item.page === pageNb);
+  const miniCategories = [];
+  newPage.forEach((item) => {
+    if (!miniCategories.includes(item.category)) {
+      miniCategories.push(item.category);
+    }
   });
-  page.appendChild(section);
+
+  miniCategories.reverse();
+  miniCategories.forEach((category) => {
+    const section = document.createElement("section");
+    const newItems = data.filter((item) => item.category === category);
+    newItems.reverse();
+    section.innerHTML += `
+          <div class="title">  
+            <div class="title-name">${category} ${checkUnit(
+      newItems[0].unit
+    )}</div>
+          </div>
+        `;
+    newItems.forEach((item) => {
+      section.innerHTML += `
+            <div class="item">
+              <div class="item-name">${item.name}</div>
+              <div class="item-price">${item.price}$</div>
+            </div>
+        `;
+    });
+    page.appendChild(section);
+  });
 
   page.innerHTML += `
     <div class="contact-us">
       <div>
-        For your orders please call us on 00 -000 000 
+        For your orders 00 -000 000 
+        <a class="wp"
+          href="">${wpLogo}</a>
       </div>
       <span>
         <a
-          href="https://www.facebook.com/Bonappetitleb?mibextid=ZbWKwL"
+          href="https://www.facebook.com/profile.php?id=100090272394104"
           target="_blank">${instagramLogo}</a>
           <div>Al Amal Cuisine</div>
         <a
-          href="https://instagram.com/bon_appetit_leb?igshid=NDk5N2NlZjQ="
+          href="https://instagram.com/alamalcuisine"
           target="_blank">${fbLogo}</a>
       </span>
     </div>
     `;
   ContentDOM.appendChild(page);
 });
+
+ContentDOM.innerHTML += `
+<div class='page main-page'>
+  <header>
+    <div><img class="main-img" src="./img/logo.png" alt="" /></div>
+    <button class="prev" onclick="prev()"><</button>
+    <button class="next" onclick="next()">></button>
+  </header>
+  <p>
+    At AL Amal Cuisine, we are passionate about bringing you the best of frozen cuisine. Our team of expert chefs creates delicious and nutritious meals using only the finest ingredients, which are then frozen to preserve their freshness and flavor. Our cuisine is inspired by a fusion of Arabic and international flavors, ensuring there is something to suit every taste.
+  </p>
+  <div class="contact-us">
+      <div>
+        For your orders 00 -000 000 
+      </div>
+      <span>
+        <a
+          href="https://www.facebook.com/profile.php?id=100090272394104"
+          target="_blank">${instagramLogo}</a>
+          <div>Al Amal Cuisine</div>
+        <a
+          href="https://instagram.com/alamalcuisine"
+          target="_blank">${fbLogo}</a>
+      </span>
+    </div>
+</div>
+`;
+
+function checkUnit(unit) {
+  return unit ? `/${unit}` : ``;
+}
 
 const nextBtn = document.querySelectorAll(".next");
 const prevBtn = document.querySelectorAll(".prev");
@@ -129,8 +176,7 @@ function handleTouchEnd(event) {
   let swipeDirection;
   swipeDistance < -60 ? (swipeDirection = "right") : null;
   swipeDistance > 60 ? (swipeDirection = "left") : null;
-  console.log(swipeDistance);
-  console.log(swipeDirection);
+
   // Activate the corresponding button based on swipe direction
   if (swipeDirection === "right") {
     next();
@@ -140,3 +186,22 @@ function handleTouchEnd(event) {
   touchStartX = 0;
   touchEndX = 0;
 }
+
+const invoiceButtons = document.querySelectorAll(".main-img");
+let clickCount = 0;
+let clickTimeout;
+invoiceButtons.forEach((invoiceBtn) => {
+  invoiceBtn.addEventListener("click", () => {
+    clickCount++;
+    if (clickCount < 5) {
+      clickTimeout = setTimeout(() => {
+        clickCount = 0;
+      }, 1000);
+    } else {
+      clearTimeout(clickTimeout);
+      clickCount = 0;
+      const url = "./invoice.html";
+      window.location.href = url;
+    }
+  });
+});
