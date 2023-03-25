@@ -15,6 +15,7 @@
 *:hover {
   cursor: default;
 }
+
 button,
 a,
 #content {
@@ -34,11 +35,11 @@ body {
   background: var(--bg);
   width: 100vw;
   max-width: 400px;
-  min-height: 100vh;
   margin: auto;
   position: relative;
-  overflow-x: hidden;
   box-sizing: border-box;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 .main-page img {
@@ -58,15 +59,21 @@ body {
   left: 0;
   transform-origin: 0 0;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  transition: 1s ease-in-out, display 0s;
+  transition: 1s ease-in-out;
   transform-style: preserve-3d;
   border: 3px solid var(--title-color);
   filter: brightness(1);
-  overflow-y: auto;
-  padding-bottom: 30px;
-  display: none;
+  padding-bottom: 70px;
 }
 
+.cs-container {
+  height: calc(100vh - 150px - 70px);
+  overflow-y: scroll;
+}
+
+.main-page .cs-container {
+  height: calc(100vh - 190px - 70px);
+}
 svg {
   fill: var(--a-Tag-Color);
   height: 1.3rem;
@@ -149,10 +156,6 @@ header div {
 
 header img {
   width: 150px;
-}
-
-.page {
-  padding-bottom: 70px;
 }
 
 section {

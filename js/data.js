@@ -275,6 +275,7 @@ const data = [
   {
     name: "Petit Four /kg",
     category: "Dessert",
+    unit: "kg",
     price: 10,
     page: 4,
   },

@@ -27,12 +27,15 @@ categories.forEach((pageNb) => {
       miniCategories.push(item.category);
     }
   });
-
+  const container = document.createElement("div");
+  container.className = "cs-container";
+  page.appendChild(container);
   miniCategories.reverse();
   miniCategories.forEach((category) => {
     const section = document.createElement("section");
     const newItems = data.filter((item) => item.category === category);
     newItems.reverse();
+
     section.innerHTML += `
           <div class="title">  
             <div class="title-name">${category} ${checkUnit(
@@ -48,7 +51,7 @@ categories.forEach((pageNb) => {
             </div>
         `;
     });
-    page.appendChild(section);
+    container.appendChild(section);
   });
 
   page.innerHTML += `
@@ -79,9 +82,11 @@ ContentDOM.innerHTML += `
     <button class="prev" onclick="prev()"><</button>
     <button class="next" onclick="next()">></button>
   </header>
-  <p>
-    At AL Amal Cuisine, we are passionate about bringing you the best of frozen food. Our team of expert chefs creates delicious and nutritious meals using only the finest ingredients, which are then frozen to preserve their freshness and flavor. Our cuisine is inspired by a fusion of Arabic and international flavors, ensuring there is something to suit every taste.
-  </p>
+  <div class='cs-container'>
+    <p>
+      At AL Amal Cuisine, we are passionate about bringing you the best of frozen food. Our team of expert chefs creates delicious and nutritious meals using only the finest ingredients, which are then frozen to preserve their freshness and flavor. Our cuisine is inspired by a fusion of Arabic and international flavors, ensuring there is something to suit every taste.
+    </p>
+  </div>
   <div class="contact-us">
       <div>
         For your orders 00 -000 000 
