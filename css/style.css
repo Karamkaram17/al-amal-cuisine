@@ -10,6 +10,7 @@
 * {
   user-select: none;
   outline: none;
+  box-sizing: border-box;
 }
 
 *:hover {
@@ -25,20 +26,34 @@ a,
 body {
   padding: 0;
   margin: 0;
+  min-width: 350px;
   background: var(--bg);
-  position: relative;
   color: var(--text_color);
 }
 
-#content,
+#content {
+  position: relative;
+  background: var(--bg);
+  width: 350px;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow-x: hidden;
+}
+
 .page {
   background: var(--bg);
-  width: 100vw;
-  max-width: 400px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
-  position: relative;
+  position: absolute;
   box-sizing: border-box;
-  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -54,16 +69,12 @@ body {
 }
 
 .page {
-  position: absolute;
-  top: 0;
-  left: 0;
   transform-origin: 0 0;
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   transition: 1s ease-in-out;
   transform-style: preserve-3d;
   border: 3px solid var(--title-color);
   filter: brightness(1);
-  padding-bottom: 70px;
 }
 
 .cs-container {
@@ -72,7 +83,7 @@ body {
 }
 
 .main-page .cs-container {
-  height: calc(100vh - 190px - 70px);
+  height: calc(100vh - 190px - 55px);
 }
 svg {
   fill: var(--a-Tag-Color);
@@ -201,7 +212,7 @@ section {
 
 .contact-us {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1rem;
   left: 0;
   right: 0;
   text-align: center;
